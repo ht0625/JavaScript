@@ -14,11 +14,13 @@ $(document).ready(function(){
     // [国語の点数,英語の点数,数学の点数,理科の点数,社会の点数]をそれぞれ足します。
     // ヒント! 配列を一つづつ取り出して足していきます。
     //
+    //
     // let sum = subject_points[0];
     // sum = sum + subject_points[1];
     // sum = sum + subject_points[2];
     // sum = sum + subject_points[3];
     // sum = sum + subject_points[4];
+    //
     //
     var sum = subject_points.reduce(function(accumulator, currentValue) {
       return accumulator + currentValue;
@@ -44,6 +46,8 @@ $(document).ready(function(){
     } else if ( averageIndicate >= 60) {
       return "B";
       // もし「averageIndicate」が40以上なら"C"を返します。
+    } else if ( averageIndicate >= 40) {
+      return "C";
       // もし「averageIndicate」がそれ以外の点数なら"D"を返します。
     } else {
       return "D";
@@ -74,7 +78,11 @@ $(document).ready(function(){
     //
     // ヒント! 「javascript 点数 合格 不合格 ロジック」で検索してみてください。
     //debugger
+    //
+    //
     //return pass_or_failure;
+    //
+    //
   };
   // 最終的なジャッジのロジックを作ります。
   function judgement(){
@@ -99,8 +107,7 @@ $(document).ready(function(){
   });
   // 「最終ジャッジ」(class="btn-declaration")ボタンを押したら「function judgement()」が出力される処理です。
   $('#btn-declaration').click(function() {
-    $('#declaration').remove();
-    //$("#declaration").text(judgement());
+    $('#alert-indicate').remove();
     judgement();
   });
 });
